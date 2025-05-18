@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: #FBF8EF;   
+}
+
+/* Side Bar */
+main {
+    height: fit-content;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+#menu {
+    position: absolute;
+    left: 10px;
+    top: 2px   ;
+    font-size: 2-px;
+    cursor: pointer;
+    z-index: 100;
+    color: #333;
+}
+
+#box {
+    display: none;
+}
+
+/* Initially hide the sidebar */
+aside {
+    width: 0;
+    height: 100%;
+    background-color:  #3498db;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    padding-top: 60px;
+}
+
+/* Show sidebar when checkbox is checked */
+#box:checked + aside {
+    width: 250px;
+    min-width: 250px;
+}
+
+.profile-name {
+    height: 170px;
+    width: 100%;
+    margin: 25px 0 5px 0;
+    padding: 0 30px;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.2s;
+}
+
+#box:checked + aside .profile-name {
+    opacity: 1;
+}
+
+.profile-name img {
+    height: 90px;
+    width: 90px;
+    margin-left: 30px;
+    border-radius: 50%;
+}
+
+#profile-details {
+    margin: 10px;
+    color: black;
+    font-weight: 500;
+}
+
+#profile-details p {
+    margin-left: 10px; 
+}
+
+.menu-box1 {
+    display: flex;
+    align-items: center;
+    gap: 10%;  
+}
+
+.menu-icon {
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.menu-content {
+    margin-top: 2px;
+}
+
+.menu-button {
+    height: 50px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transform: translateX(-20px);
+}
+
+#box:checked + aside .menu-button {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.menu-button:hover {
+    background-color:  #9cc2dbb8;
+}
+
+.menu-content a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+/* section */
+.section-items {
+    width: 100%;
+    background-color:  #3498db73;
+    height: 100%;
+    padding: 20px;
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+}
+
+/* When sidebar is open, push content */
+#box:checked ~ .section-items {
+    margin-left: 250px;
+}
+
+/* section-left */
+.section-items {
+    display: flex;
+}
+
+.section-items h2 {
+    color: black;
+    font-weight: 600;
+}
+
+.section-left {
+    width: 50%;
+    margin-right: 10px;
+}
+
+.section-right {
+    width: 50%;
+    margin-left: 10px;
+}
+
+.accordion li {
+    list-style: none;
+    width: 100%;
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.accordion li label {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    color: red;
+}
+
+.accordion li p {
+    font-size: 17px;
+}
+
+.accordion .fa-sort-down {
+    transform: rotate(-90deg);
+}
+
+.accordion li label span {
+    transform: rotate(90deg);
+    font-size: 22px;
+    color: #333;
+}
+
+.accordion label + input[type="radio"] {
+    display: none;
+}
+
+.accordion label {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.accordion .section-content {
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    color: black;
+    font-size: 15px;
+}
+
+.accordion label + input[type="radio"]:checked + .section-content {
+    max-height: 400px;
+}
+
+.section-items h2 {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.section-content p {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.chatbot {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.chatbot:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.chatbot-icon {
+    color: white;
+    font-size: 24px;
+}
+/* animation */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(110, 142, 251, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(110, 142, 251, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(110, 142, 251, 0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #profile-details h4{
+        font-size: 18px;
+    }
+    #profile-details p{
+        font-size: 12px;
+    }
+    .menu-box1{
+        display: flex;
+        align-items: center;
+    }
+    .section-items {
+        flex-direction: column;
+    }
+    
+    .section-left, .section-right {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    #box:checked + aside {
+        width: 200px;
+        min-width: 200px;
+    }
+    
+    #box:checked ~ .section-items {
+        margin-left: 200px;
+    }
+}

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trainer</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/8.2.0/mdb.min.css" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.2.0/css/mdb.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="std-home.css">
+  <link rel="stylesheet" href="trainer-home.css">
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+    <div class="container-fluid justify-content-between">
+      <!-- Left elements -->
+      <div class="d-flex">
+        <!-- Brand -->
+        <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+          <img src="home-logo.png" height="40" alt="MDB Logo" loading="lazy" style="margin-top: 2px;" />
+        </a>
+      </div>
+
+      <!-- center elements -->
+      <ul class="navbar-nav flex-row d-none d-md-flex gap-md-4">
+        <li class="nav-item me-3 me-lg-1 active">
+          <p>17-02-2025</p>
+        </li>
+
+        <li class="nav-item me-3 me-lg-1">
+          <p>8:30 AM</p>
+        </li>
+      </ul>
+
+      <!-- Right elements -->
+      <ul class="navbar-nav flex-row gap-3">
+        <li class="nav-item me-3 me-lg-1 ">
+          <!-- timer -->
+          <i class="fa-regular fa-clock"></i>
+        </li>
+        <li class="nav-item me-3 me-lg-1">
+          <!-- calculator -->
+          <i class="fa-solid fa-calculator"></i>
+        </li>
+        <li class="nav-item dropdown me-3 me-lg-1">
+          <!-- Contact Number -->
+          <i class="fa-solid fa-phone"></i> +91-1234567890
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- side bar -->
+  <main>
+    <label id="menu" for="box">
+      <i class="fa-solid fa-bars"></i>
+    </label>
+    <input type="checkbox" id="box">
+    <aside>
+      <!-- menu items -->
+      <div class="profile-name">
+        <div id="profile-pic">
+          <div class="profile-photo">
+            <img src="Profile-photo.jpg" alt="">
+          </div>
+        </div>
+        <div id="profile-details">
+          <h4>Dhruva Kawli</h4>
+          <p>Trainer</p>
+        </div>
+      </div>
+
+      <button class="menu-button">
+        <div class="menu-box1">
+          <div class="menu-icon">
+            <i class="fa-solid fa-book"></i>
+          </div>
+          <div class="menu-content"><a href="courses.html">
+              <p>Students</p>
+            </a></div>
+        </div>
+      </button>
+
+      <button class="menu-button">
+        <div class="menu-box1">
+          <div class="menu-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div class="menu-content"><a href="jobs.html">
+              <p>Lectures</p>
+            </a></div>
+        </div>
+      </button>
+
+      <button class="menu-button">
+        <div class="menu-box1">
+          <div class="menu-icon">
+            <i class="fa-solid fa-clipboard"></i>
+          </div>
+          <div class="menu-content">
+            <p>Syllabus</p>
+          </div>
+        </div>
+      </button>
+
+      <button class="menu-button">
+        <div class="menu-box1">
+          <div class="menu-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="menu-content">
+            <p>Upcoming batches</p>
+          </div>
+        </div>
+      </button>
+
+      <button class="menu-button">
+        <div class="menu-box1">
+          <div class="menu-icon">
+            <i class="fa-solid fa-comment"></i>
+          </div>
+          <div class="menu-content"><a href="quiz.html">
+              <p>Task</p>
+            </a></div>
+        </div>
+      </button>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="menu-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div class="menu-box1">
+          <div class="menu-icon">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </div>
+          <div class="menu-content">
+            <p>Logout</p>
+          </div>
+        </div>
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Logout Successfully !!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <section class="trainer-dashboard">
+    <div class="dashboard-header">
+        <h2><i class="fas fa-chalkboard-teacher"></i> Trainer Dashboard</h2>
+        <div class="dashboard-controls">
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </div>
+            <select class="filter-select">
+                <option>All Batches</option>
+                <option>Current</option>
+                <option>Upcoming</option>
+                <option>Completed</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Total Students</h3>
+                <p>84</p>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Active Batches</h3>
+                <p>3</p>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-chalkboard"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Lectures Today</h3>
+                <p>2</p>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-tasks"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Pending Tasks</h3>
+                <p>5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="upcoming-lectures">
+        <h3><i class="fas fa-calendar-alt"></i> Upcoming Lectures</h3>
+        <div class="lectures-container">
+            <div class="lecture-card">
+                <div class="lecture-time">
+                    <span class="time">09:00 AM</span>
+                    <span class="duration">2 hours</span>
+                </div>
+                <div class="lecture-details">
+                    <h4>Python Full Stack - Batch 5</h4>
+                    <p>Topic: Django REST Framework</p>
+                    <div class="lecture-meta">
+                        <span><i class="fas fa-users"></i> 24 students</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Lab 3</span>
+                    </div>
+                </div>
+                <button class="action-btn">Start</button>
+            </div>
+            
+            <div class="lecture-card">
+                <div class="lecture-time">
+                    <span class="time">02:00 PM</span>
+                    <span class="duration">1.5 hours</span>
+                </div>
+                <div class="lecture-details">
+                    <h4>Java Full Stack - Batch 2</h4>
+                    <p>Topic: Spring Boot Security</p>
+                    <div class="lecture-meta">
+                        <span><i class="fas fa-users"></i> 18 students</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Online</span>
+                    </div>
+                </div>
+                <button class="action-btn">Prepare</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="recent-students">
+        <h3><i class="fas fa-user-graduate"></i> Recent Students</h3>
+        <div class="students-table-container">
+            <table class="students-table">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Batch</th>
+                        <th>Last Seen</th>
+                        <th>Progress</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ST2024051</td>
+                        <td>Rahul Sharma</td>
+                        <td>Python FS - Batch 5</td>
+                        <td>Today, 10:30 AM</td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%"></div>
+                            </div>
+                            <span>78%</span>
+                        </td>
+                        <td><button class="view-btn">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>ST2024062</td>
+                        <td>Priya Patel</td>
+                        <td>Java FS - Batch 2</td>
+                        <td>Yesterday</td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                            <span>65%</span>
+                        </td>
+                        <td><button class="view-btn">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>ST2024073</td>
+                        <td>Ankit Verma</td>
+                        <td>Python FS - Batch 5</td>
+                        <td>Yesterday</td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 92%"></div>
+                            </div>
+                            <span>92%</span>
+                        </td>
+                        <td><button class="view-btn">View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

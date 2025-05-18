@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.box1 {
+    height: 600px;
+    width: 50%;
+    background-color: #e3f2fd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box1 img {
+    width: 80%;
+    height: auto;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.box2 {
+    height: 600px;
+    width: 50%;
+    background-color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+form {
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* Initially hide the register form */
+#registerForm {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#loginForm {
+    display: block;
+}
+
+form.active-form {
+    display: block;
+}
+
+h2 {
+    color: #3498db;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 28px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+sup {
+    color: red;
+    font-size: 12px;
+}
+
+.submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit:hover {
+    background-color: #2980b9;
+}
+
+.toggle-form {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+}
+
+.toggle-form a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.toggle-form a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design - Mobile First Approach */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        border-radius: 20px;
+        box-shadow: none;
+    }
+    
+    .box1 {
+        display: none; /* Hide the image box on mobile */
+    }
+    
+    .box2 {
+        width: 100%;
+        height: auto;
+        min-height: 500px;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    /* Ensure forms are visible */
+    #loginForm, #registerForm {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media (max-width: 480px) {
+    .box2 {
+        padding: 20px;
+        min-height: 450px;
+    }
+    
+    h2 {
+        font-size: 22px;
+    }
+    
+    input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    
+    .submit {
+        padding: 10px;
+        font-size: 15px;
+    }
+    
+    label {
+        font-size: 14px;
+    }
+}

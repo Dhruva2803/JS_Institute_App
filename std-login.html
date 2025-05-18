@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box1">
+            <img src="login-image.jpg" alt="Student Login">
+        </div>
+        <div class="box2">
+            <div class="form-container">
+                <!-- Login Form -->
+                <form id="loginForm">
+                    <h2>Student Login</h2>
+                    <div class="form-group">
+                        <label for="loginUsername">Username <sup>*</sup></label>
+                        <input type="text" id="loginUsername" placeholder="Enter Username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password <sup>*</sup></label>
+                        <input type="password" id="loginPassword" placeholder="Enter Password" required>
+                    </div>
+                    <button type="submit" class="submit">Login</button>
+                    <p class="toggle-form">Don't have an account? <a href="#" id="showRegister">Register</a></p>
+                </form>
+
+                <!-- Register Form -->
+                <form id="registerForm" style="display: none;">
+                    <h2>Student Registration</h2>
+                    <div class="form-group">
+                        <label for="regUsername">Username <sup>*</sup></label>
+                        <input type="text" id="regUsername" placeholder="Enter Username" minlength="4" maxlength="8" pattern="[a-zA-Z0-9]{4,8}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Password <sup>*</sup></label>
+                        <input type="password" id="regPassword" placeholder="Enter Password" minlength="8" maxlength="16" pattern="[a-zA-Z0-9]{8,16}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email <sup>*</sup></label>
+                        <input type="email" id="regEmail" placeholder="Enter Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regFullName">Full Name <sup>*</sup></label>
+                        <input type="text" id="regFullName" placeholder="Enter Full Name" required>
+                    </div>
+                    <button type="submit" class="submit">Register</button>
+                    <p class="toggle-form">Already have an account? <a href="#" id="showLogin">Login</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between login and register forms
+        document.getElementById('showRegister').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+        });
+
+        document.getElementById('showLogin').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        });
+
+        // Handle registration
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+            const email = document.getElementById('regEmail').value;
+            const fullName = document.getElementById('regFullName').value;
+            
+            // Create student-specific storage key
+            const studentKey = `student_${username}`;
+            
+            // Check if username already exists in student storage
+            if (localStorage.getItem(studentKey)) {
+                alert('Username already exists! Please choose another one.');
+                return;
+            }
+            
+            // Store student data with student-specific key
+            const userData = {
+                username: username,
+                password: password,
+                email: email,
+                fullName: fullName,
+                role: 'student'
+            };
+            
+            localStorage.setItem(studentKey, JSON.stringify(userData));
+            alert('Registration successful! You can now login.');
+            
+            // Clear form and switch to login
+            this.reset();
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        });
+
+        // Handle login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            const studentKey = `student_${username}`;
+            
+            // Check if student exists
+            const userData = JSON.parse(localStorage.getItem(studentKey));
+            
+            if (!userData) {
+                alert('Username not found! Please register first.');
+                return;
+            }
+            
+            // Check password
+            if (userData.password !== password) {
+                alert('Incorrect password! Please try again.');
+                return;
+            }
+            
+            // Store current student in session and redirect
+            sessionStorage.setItem('currentUser', JSON.stringify(userData));
+            window.location.href = 'std-home.html';
+        });
+    </script>
+</body>
+</html>

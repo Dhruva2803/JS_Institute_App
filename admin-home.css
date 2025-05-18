@@ -1,0 +1,161 @@
+/* Section Items Styles with Animations */
+.section-items {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    gap: 30px;
+    height: calc(100vh - 60px); /* Adjust based on navbar height */
+    background-color: #f8f9fa;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.left, .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: slideUp 0.6s ease-out;
+}
+
+.pie-chart {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    height: 250px;
+}
+
+.pie-chart:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.x-box-1, .x-box-2 {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 30px;
+    position: relative;
+    background: conic-gradient(
+        green 0% 64%,
+        red 64% 100%
+    );
+    animation: rotateIn 1s ease-out;
+}
+
+.x-box-2 {
+    background: conic-gradient(
+        blue 0% 77%,
+        red 77% 100%
+    );
+}
+
+.x-box-cont {
+    flex: 1;
+}
+
+.x-box-cont h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.x-box-cont h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* Chat Bot Styles */
+.chatbot {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.chatbot:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.chatbot-icon {
+    color: white;
+    font-size: 24px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateIn {
+    from { 
+        opacity: 0;
+        transform: rotate(-90deg) scale(0.5);
+    }
+    to { 
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(110, 142, 251, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(110, 142, 251, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(110, 142, 251, 0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-items {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+    
+    .pie-chart {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 20px;
+    }
+    
+    .x-box-1, .x-box-2 {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .chatbot {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+}

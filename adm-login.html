@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box1">
+            <img src="login-image.jpg" alt="Admin Login">
+        </div>
+        <div class="box2">
+            <div class="form-container">
+                <!-- Login Form -->
+                <form id="loginForm">
+                    <h2>Admin Login</h2>
+                    <div class="form-group">
+                        <label for="loginUsername">Username <sup>*</sup></label>
+                        <input type="text" id="loginUsername" placeholder="Enter Username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password <sup>*</sup></label>
+                        <input type="password" id="loginPassword" placeholder="Enter Password" required>
+                    </div>
+                    <button type="submit" class="submit">Login</button>
+                    <p class="toggle-form">Don't have an account? <a href="#" id="showRegister">Register</a></p>
+                </form>
+
+                <!-- Register Form -->
+                <form id="registerForm" style="display: none;">
+                    <h2>Admin Registration</h2>
+                    <div class="form-group">
+                        <label for="regUsername">Username <sup>*</sup></label>
+                        <input type="text" id="regUsername" placeholder="Enter Username" minlength="4" maxlength="8" pattern="[a-zA-Z0-9]{4,8}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Password <sup>*</sup></label>
+                        <input type="password" id="regPassword" placeholder="Enter Password" minlength="8" maxlength="16" pattern="[a-zA-Z0-9]{8,16}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email <sup>*</sup></label>
+                        <input type="email" id="regEmail" placeholder="Enter Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regFullName">Full Name <sup>*</sup></label>
+                        <input type="text" id="regFullName" placeholder="Enter Full Name" required>
+                    </div>
+                    <button type="submit" class="submit">Register</button>
+                    <p class="toggle-form">Already have an account? <a href="#" id="showLogin">Login</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between login and register forms
+        document.getElementById('showRegister').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+        });
+
+        document.getElementById('showLogin').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        });
+
+        // Handle registration
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+            const email = document.getElementById('regEmail').value;
+            const fullName = document.getElementById('regFullName').value;
+            
+            // Create admin-specific storage key
+            const adminKey = `admin_${username}`;
+            
+            // Check if username already exists in admin storage
+            if (localStorage.getItem(adminKey)) {
+                alert('Username already exists! Please choose another one.');
+                return;
+            }
+            
+            // Store admin data with admin-specific key
+            const userData = {
+                username: username,
+                password: password,
+                email: email,
+                fullName: fullName,
+                role: 'admin'
+            };
+            
+            localStorage.setItem(adminKey, JSON.stringify(userData));
+            alert('Registration successful! You can now login.');
+            
+            // Clear form and switch to login
+            this.reset();
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        });
+
+        // Handle login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            const adminKey = `admin_${username}`;
+            
+            // Check if admin exists
+            const userData = JSON.parse(localStorage.getItem(adminKey));
+            
+            if (!userData) {
+                alert('Username not found! Please register first.');
+                return;
+            }
+            
+            // Check password
+            if (userData.password !== password) {
+                alert('Incorrect password! Please try again.');
+                return;
+            }
+            
+            // Store current admin in session and redirect
+            sessionStorage.setItem('currentAdmin', JSON.stringify(userData));
+            window.location.href = 'admin-home.html';
+        });
+    </script>
+</body>
+</html>
