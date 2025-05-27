@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container-fluid{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width:100%;
+    background-size: 100%;
+    background-image: url("https://png.pngtree.com/background/20210711/original/pngtree-computer-training-board-background-picture-image_1125316.jpg");
+    /* background-repeat: no-repeat; */
+    gap:3%;
+}
+
+a button{
+    height: 50px;
+    width:550px;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+}
+a button:hover{
+    color: darkblue;
+    background-color: skyblue;
+    transform: scale(1.02);
+}
+b{
+    font-size: large;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    a button{
+        width: fit-content;
+        padding: 5px 20px;
+    }
+}
